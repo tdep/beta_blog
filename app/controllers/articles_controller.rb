@@ -22,7 +22,8 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article was created successfully."
       redirect_to @article
     else
-      render plain: @article.errors.full_messages
+      # render plain: @article.errors.full_messages
+      render 'edit'
     end
   end
 
