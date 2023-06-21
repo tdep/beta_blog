@@ -16,9 +16,9 @@
           </button>
           <ul class="dropdown-menu dropdown-menu-dark">
             <% if logged_in? %>
-              <li><%= link_to "Create new article", new_article_path, class: "dropdown-item" %></li> 
+              <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
             <% end %>
-            <li><%= link_to "View articles", articles_path, class: "dropdown-item" %></li>
+            <%= link_to "View articles", articles_path, class: "dropdown-item" %>
           </ul>
         </li>
 
@@ -28,8 +28,9 @@
               Profile [<%= current_user.username %>]
             </button>
             <ul class="dropdown-menu dropdown-menu-dark">
-              <li><%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %></li> 
-              <li><%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %></li>
+              <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Delete your profile", user_path(current_user), class: "dropdown-item text-danger", data:{turbo_method: :delete, confirm: "Are you sure?"} %>
             </ul>
           </li>
           <li class="nav-item">
