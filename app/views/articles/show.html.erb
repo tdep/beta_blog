@@ -11,8 +11,10 @@
           <div class="card-body">
             <div class="card-text text-left"><%= simple_format(@article.description) %></div>
             <div class="justify-content-center text-center">
-              <%= link_to "Edit", edit_article_path(@article.id), class: "btn btn-outline-info" %>
-              <%= link_to 'Delete', article_path(@article.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+              <% if logged_in? && @article.user == current_user%>
+                <%= link_to "Edit", edit_article_path(@article.id), class: "btn btn-outline-info" %>
+                <%= link_to 'Delete', article_path(@article.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+              <% end %>
             </div>
           </div>
           <div class="card-footer text-center text-body-secondary">
