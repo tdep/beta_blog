@@ -25,12 +25,12 @@
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <button class="btn btn-black dropdown-toggle text-light" data-bs-toggle="dropdown" aria-expanded="false">
-              Profile [<%= current_user.username %>]
+              <%= "(Admin)" if current_user.admin? %> Profile [<%= current_user.username %>]
             </button>
             <ul class="dropdown-menu dropdown-menu-dark">
               <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Delete your profile", user_path(current_user), class: "dropdown-item text-danger", data:{turbo_method: :delete, confirm: "Are you sure?"} %>
+              <%= link_to "Delete your profile", user_path(current_user), class: "dropdown-item text-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             </ul>
           </li>
           <li class="nav-item">
